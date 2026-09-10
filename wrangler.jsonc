@@ -1,29 +1,41 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "my-emdash-site",
+	"name": "blog",
 	"main": "./src/worker.ts",
 	"compatibility_date": "2026-02-24",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "my-emdash-site",
-		},
+			"database_name": "blog-db",
+			"database_id": "d2532d85-3a96-4802-9873-b2e8a2f568a8",
+			"migrations_dir": "../../../../migrations"
+		}
 	],
 	"r2_buckets": [
 		{
 			"binding": "MEDIA",
-			"bucket_name": "oss-blog",
-		},
+			"bucket_name": "blog-oss"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "SESSION",
+			"id": "f09cdd78cc8b4adf8bbda5b6a352df4d"
+		}
 	],
 	// Worker Loader for plugin sandboxing
-//	"worker_loaders": [
-//		{
-//			"binding": "LOADER",
-//		},
-//	],
+	//	"worker_loaders": [
+	//		{
+	//			"binding": "LOADER",
+	//		},
+	//	],
 	// General maintenance cron trigger
 	"triggers": {
-		"crons": ["* * * * *"],
-	},
+		"crons": [
+			"* * * * *"
+		]
+	}
 }

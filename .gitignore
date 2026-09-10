@@ -13,3 +13,4 @@ data.db
 .dev.vars.*
 
 .idea
+.wrangler

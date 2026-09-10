@@ -1,3 +1,0 @@
-# Prettier is only used for .astro files (oxfmt handles everything else)
-*
-!**/*.astro

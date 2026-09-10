@@ -1,54 +1,64 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "blog",
-	"main": "./src/worker.ts",
-	"compatibility_date": "2026-02-24",
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
-	"d1_databases": [
-		{
-			"binding": "DB",
-			"database_name": "blog-db",
-			"database_id": "d2532d85-3a96-4802-9873-b2e8a2f568a8",
-			"migrations_dir": "../../../../migrations"
-		}
-	],
-	"r2_buckets": [
-		{
-			"binding": "MEDIA",
-			"bucket_name": "blog-oss"
-		}
-	],
-	"kv_namespaces": [
-		{
-			"binding": "SESSION",
-			"id": "f09cdd78cc8b4adf8bbda5b6a352df4d"
-		}
-	],
-	// Worker Loader for plugin sandboxing
-	//	"worker_loaders": [
-	//		{
-	//			"binding": "LOADER",
-	//		},
-	//	],
-	// General maintenance cron trigger
-	"triggers": {
-		"crons": [
-			"* * * * *"
-		]
-	},
-	"observability": {
-		"logs": {
-			"enabled": true,
-			"head_sampling_rate": 1,
-			"invocation_logs": true,
-			"persist": true
-		},
-		"traces": {
-			"enabled": true,
-			"head_sampling_rate": 1,
-			"persist": true
-		}
-	}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "blog",
+  "main": "./src/worker.ts",
+  "compatibility_date": "2026-02-24",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "cache": {
+    "enabled": true
+  },
+  "images": {
+    "binding": "IMAGES"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "blog-db",
+      "database_id": "d2532d85-3a96-4802-9873-b2e8a2f568a8",
+      "migrations_dir": "../../../../migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "blog-oss"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "SESSION",
+      "id": "f09cdd78cc8b4adf8bbda5b6a352df4d"
+    },
+    {
+      "binding": "CACHE",
+      "id": "4c7fb568ffdd4e77b2accb524fddfa9d"
+    }
+  ],
+  // Worker Loader for plugin sandboxing
+  //	"worker_loaders": [
+  //		{
+  //			"binding": "LOADER",
+  //		},
+  //	],
+  // General maintenance cron trigger
+  "triggers": {
+    "crons": [
+      "* * * * *"
+    ]
+  },
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true,
+      "persist": true
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true
+    }
+  }
 }

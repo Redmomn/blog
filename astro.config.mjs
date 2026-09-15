@@ -50,9 +50,7 @@ export default defineConfig({
 			database: d1({ binding: "DB", session: "auto" }),
 			storage: r2({
 				binding: "MEDIA",
-				publicUrl: "https://blog.oss.redmomn.cc",
 			}),
-			images: false,
 			objectCache: kvCache({
 				binding: "CACHE",
 			}),

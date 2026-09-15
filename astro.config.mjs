@@ -52,6 +52,7 @@ export default defineConfig({
 				binding: "MEDIA",
 				publicUrl: "https://blog.oss.redmomn.cc",
 			}),
+			images: false,
 			objectCache: kvCache({
 				binding: "CACHE",
 			}),

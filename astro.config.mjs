@@ -38,6 +38,10 @@ export default defineConfig({
 			maxAge: 300,
 			swr: 86400,
 		},
+		"/_image": {
+			maxAge: 86400,
+			swr: 86400,
+		},
 	},
 	image: {
 		layout: "constrained",

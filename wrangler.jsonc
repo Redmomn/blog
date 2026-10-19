@@ -45,7 +45,7 @@
   // General maintenance cron trigger
   "triggers": {
     "crons": [
-      "* * * * *"
+      "0 * * * *"
     ]
   },
   "observability": {
